@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <section>
       <div className="relative overflow-hidden">
-        <div className="mx-auto max-w-7xl pb-16 pt-6 px-4 sm:pb-24 sm:pt-10 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:pt-32 lg:pb-40">
+        <div className="mx-auto max-w-7xl py-16 px-4 sm:py-24 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:py-32">
           <div className="px-0 lg:px-0 my-auto">
             <div className="gap-6 sm:gap-8 max-w-lg text-center sm:text-left flex flex-col items-center lg:items-start">
               <h1
@@ -121,7 +121,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-primary-40 bg-[url('/base.png')] bg-repeat bg-blend-multiply" id="api">
+      <section
+        className="bg-primary-40 bg-[url('/base.png')] bg-repeat bg-blend-multiply"
+        id="api"
+      >
         <div className="mx-auto max-w-6xl gap-6 py-16 sm:py-24 lg:py-32 lg:gap-x-8 lg:px-8">
           <h2 className="mx-auto text-balance text-3xl sm:text-5xl lg:text-6xl text-center font-bold leading-tight sm:leading-[4.25rem] tracking-tight max-w-2xl text-slate-900 px-4">
             Try it{" "}
