@@ -2,7 +2,7 @@
 
 export function PlaygroundTips() {
   return (
-    <div className="bg-blue-50 dark:bg-blue-900/30 rounded-lg p-4">
+    <div className="bg-blue-50 dark:bg-blue-900/30 rounded-lg p-4 border border-blue-200 dark:border-blue-800">
       <h4 className="text-sm font-medium text-blue-800 dark:text-blue-200 mb-2">
         Tips
       </h4>

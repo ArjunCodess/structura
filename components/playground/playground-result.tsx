@@ -10,7 +10,6 @@ interface PlaygroundResultProps {
 
 function formatValue(value: unknown): string {
   if (value === null) return "Not found";
-  if (typeof value === "boolean") return value ? "Yes" : "No";
   if (Array.isArray(value)) return value.join(", ");
   return String(value);
 }
@@ -38,16 +37,16 @@ export function PlaygroundResult({ result, error }: PlaygroundResultProps) {
   return (
     <div>
       <h3 className="text-lg font-medium text-neutral-900 dark:text-white mb-2">
-        Result
+        Output
       </h3>
       <div className="bg-white dark:bg-neutral-800 shadow rounded-lg p-4">
         {error ? (
           <div className="text-red-600 dark:text-red-400">{error}</div>
         ) : result ? (
           <Tabs value={activeTab} onValueChange={setActiveTab}>
-            <TabsList className="mb-4">
-              <TabsTrigger value="user-friendly">User Friendly</TabsTrigger>
-              <TabsTrigger value="json">JSON View</TabsTrigger>
+            <TabsList className="mb-4 w-full">
+              <TabsTrigger value="user-friendly" className="w-1/2">User Friendly</TabsTrigger>
+              <TabsTrigger value="json" className="w-1/2">JSON View</TabsTrigger>
             </TabsList>
             <TabsContent value="user-friendly">
               {renderUserFriendlyView(result as Record<string, unknown>)}

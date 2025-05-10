@@ -9,7 +9,9 @@ interface PlaygroundInputProps {
   text: string;
   setText: (text: string) => void;
   schema: Record<string, { type: string; items?: { type: string } }>;
-  setSchema: (schema: Record<string, { type: string; items?: { type: string } }>) => void;
+  setSchema: (
+    schema: Record<string, { type: string; items?: { type: string } }>
+  ) => void;
   onSubmit: (e: React.FormEvent) => void;
   isLoading: boolean;
 }
@@ -88,6 +90,9 @@ export function PlaygroundInput({
 
   return (
     <form onSubmit={onSubmit} className="space-y-6">
+      <h3 className="text-lg font-medium text-neutral-900 dark:text-white mb-2">
+        Input
+      </h3>
       <div>
         <label
           htmlFor="text"
@@ -98,7 +103,7 @@ export function PlaygroundInput({
         <textarea
           id="text"
           rows={4}
-          className="w-full px-3 py-2 border border-neutral-200 dark:border-neutral-700 rounded-md shadow-sm focus:ring-neutral-500 focus:border-neutral-500 dark:bg-neutral-800 dark:text-white"
+          className="w-full px-3 py-2 border border-neutral-200 dark:border-neutral-700 rounded-md shadow-sm focus:ring-neutral-500 focus:border-neutral-500 bg-background"
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder="Enter your text here..."
@@ -130,7 +135,9 @@ export function PlaygroundInput({
               arrayItemType={field.arrayItemType}
               onNameChange={(name) => updateField(field.id, { name })}
               onTypeChange={(type) => updateField(field.id, { type })}
-              onArrayItemTypeChange={(type) => updateField(field.id, { arrayItemType: type })}
+              onArrayItemTypeChange={(type) =>
+                updateField(field.id, { arrayItemType: type })
+              }
               onRemove={() => removeField(field.id)}
             />
           ))}
@@ -158,4 +165,4 @@ export function PlaygroundInput({
       </Button>
     </form>
   );
-} 
+}

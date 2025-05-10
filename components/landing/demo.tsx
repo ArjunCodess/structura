@@ -199,7 +199,6 @@ const Demo = () => {
 
 function formatValue(value: unknown): string {
   if (value === null) return "Not found";
-  if (typeof value === "boolean") return value ? "Yes" : "No";
   if (Array.isArray(value)) return value.join(", ");
   if (typeof value === "object" && value !== null) {
     return JSON.stringify(value, null, 2);
