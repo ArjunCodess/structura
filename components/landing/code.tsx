@@ -14,7 +14,7 @@ const Code = ({ code }: { code: string }) => {
               style={{ position: "relative" }}
               {...getLineProps({ line })}
             >
-              <span className="text-neutral-500 select-none pr-8">{i + 1}</span>
+              <span className="text-neutral-500 select-none pr-8">{i + 1 < 10 ? "0" : ""}{i + 1}</span>
               {line.map((token, key) => (
                 <span key={key} {...getTokenProps({ token })} />
               ))}

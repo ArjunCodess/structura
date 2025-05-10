@@ -100,7 +100,7 @@ const Demo = () => {
       <div className="relative w-full rounded-xl bg-neutral-900/5 p-4 ring-1 ring-inset ring-neutral-900/10 lg:rounded-2xl">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-4">
-            <span className="inline-flex items-center rounded-md bg-primary-600 px-3 py-1 text-xs font-medium text-white ring-1 ring-inset ring-primary-400/20">
+            <span className="inline-flex items-center rounded-md bg-primary-700 px-3 py-1 text-xs font-medium text-white ring-1 ring-inset ring-primary-400/20">
               POST
             </span>
             <div className="h-[20px] w-px bg-neutral-300" />

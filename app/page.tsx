@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="bg-primary-50 grainy-light">
+    <div className="bg-primary-50 bg-[url('/base.png')] bg-repeat bg-blend-multiply">
       <div className="relative overflow-hidden">
         <div className="mx-auto max-w-7xl pb-24 pt-10 sm:grid lg:grid-cols-2 sm:pb-32 lg:gap-x-8 lg:px-8 lg:pt-32 lg:pb-52">
           <div className="px-6 lg:px-0 my-auto">
@@ -73,13 +73,13 @@ export default function Home() {
         </div>
       </div>
 
-      <section className="bg-primary-100 grainy-dark px-4">
-        <div className="mx-auto max-w-6xl gap-6 pb-24 pt-20 sm:pb-32 lg:gap-x-8 lg:px-8 lg:py-40">
+      <section className="bg-primary-100 bg-[url('/base.png')] bg-repeat bg-blend-multiply px-4">
+        <div className="mx-auto max-w-6xl gap-6 py-24 sm:py-32 lg:gap-x-8 lg:px-8">
           <div className="w-full flex flex-col">
             <div className="flex justify-center text-center">
               <h2 className="font-heading text-5xl lg:text-6xl font-bold leading-tight text-balance sm:leading-none tracking-tight">
                 From{" "}
-                <span className="bg-primary-600 text-white rounded-lg px-4">
+                <span className="bg-primary-700 text-white rounded-lg px-4">
                   chaos
                 </span>{" "}
                 to clarity
@@ -118,11 +118,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="api" className="bg-primary-50 grainy-light">
-        <div className="mx-auto max-w-6xl gap-6 py-24 lg:gap-x-8 lg:px-8">
+      <section className="bg-primary-50 bg-[url('/base.png')] bg-repeat bg-blend-multiply">
+        <div className="mx-auto max-w-6xl gap-6 py-24 sm:py-32 lg:gap-x-8 lg:px-8">
           <h2 className="mx-auto text-balance text-5xl sm:text-6xl text-center font-bold leading-[4.25rem] tracking-tight max-w-2xl text-slate-900">
             Try it{" "}
-            <span className="px-4 bg-primary-600 rounded-lg text-white">
+            <span className="px-4 bg-primary-700 rounded-lg text-white">
               now
             </span>
           </h2>
