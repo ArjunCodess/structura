@@ -60,7 +60,6 @@ export function PlaygroundInput({
       )
     );
 
-    // Update schema
     const newSchema = fields.reduce((acc, field) => {
       if (field.id === id) {
         const fieldName = updates.name || field.name;

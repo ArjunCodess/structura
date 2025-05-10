@@ -1,14 +1,7 @@
-import { Redis } from "@upstash/redis";
+import { redis } from "@/lib/redis";
 
 const RATE_LIMIT_MAX = 10;
 const RATE_LIMIT_WINDOW = 3600;
-
-const redis = process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN
-  ? new Redis({
-      url: process.env.UPSTASH_REDIS_REST_URL,
-      token: process.env.UPSTASH_REDIS_REST_TOKEN,
-    })
-  : null;
 
 interface RateLimitResult {
   success: boolean;

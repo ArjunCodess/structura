@@ -28,7 +28,7 @@ export function SchemaField({
   onRemove,
 }: SchemaFieldProps) {
   return (
-    <div className="flex items-center gap-4 p-4 bg-white dark:bg-neutral-800 rounded-lg border border-neutral-200 dark:border-neutral-700">
+    <div className="flex items-center gap-4 p-2 bg-white dark:bg-neutral-800 rounded-lg border border-neutral-200 dark:border-neutral-700">
       <Input
         placeholder="Field name"
         value={fieldName}
