@@ -196,3 +196,10 @@
     @apply bg-background text-foreground;
   }
 }
+
+body {
+  background-color: var(--primary-40);
+  background-image: url('/base.png');
+  background-repeat: repeat;
+  background-blend-mode: multiply;
+}

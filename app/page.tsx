@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="bg-primary-40 bg-[url('/base.png')] bg-repeat bg-blend-multiply">
+    <section>
       <div className="relative overflow-hidden">
         <div className="mx-auto max-w-7xl pb-16 pt-6 px-4 sm:pb-24 sm:pt-10 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:pt-32 lg:pb-40">
           <div className="px-0 lg:px-0 my-auto">
@@ -73,7 +73,10 @@ export default function Home() {
         </div>
       </div>
 
-      <section className="bg-primary-100 bg-[url('/base.png')] bg-repeat bg-blend-multiply px-4">
+      <section
+        className="bg-primary-100 bg-[url('/base.png')] bg-repeat bg-blend-multiply px-4"
+        id="usecases"
+      >
         <div className="mx-auto max-w-6xl gap-6 py-16 sm:py-24 lg:py-32 lg:gap-x-8 lg:px-8">
           <div className="w-full flex flex-col">
             <div className="flex justify-center text-center">
@@ -118,7 +121,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-primary-40 bg-[url('/base.png')] bg-repeat bg-blend-multiply">
+      <section className="bg-primary-40 bg-[url('/base.png')] bg-repeat bg-blend-multiply" id="api">
         <div className="mx-auto max-w-6xl gap-6 py-16 sm:py-24 lg:py-32 lg:gap-x-8 lg:px-8">
           <h2 className="mx-auto text-balance text-3xl sm:text-5xl lg:text-6xl text-center font-bold leading-tight sm:leading-[4.25rem] tracking-tight max-w-2xl text-slate-900 px-4">
             Try it{" "}
@@ -134,16 +137,13 @@ export default function Home() {
             Use our playground to test the API with your own text and schema.
           </p>
 
-          <div
-            id="api"
-            className="w-full flex flex-col items-center mt-8 sm:mt-12 px-4"
-          >
+          <div className="w-full flex flex-col items-center mt-8 sm:mt-12 px-4">
             <div className="relative max-w-[50rem] w-full text-left p-3 sm:p-5 bg-[#1e1e1e] rounded-xl shadow">
               <CodeSection />
             </div>
           </div>
         </div>
       </section>
-    </div>
+    </section>
   );
 }

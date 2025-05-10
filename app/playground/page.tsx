@@ -3,7 +3,7 @@ import ExtractPlayground from "@/components/playground/playground";
 
 export default function ExtractPage() {
   return (
-    <div className="bg-primary-40 bg-[url('/base.png')] bg-repeat bg-blend-multiply min-h-screen">
+    <section>
       <div className="relative overflow-hidden">
         <div className="mx-auto max-w-7xl pb-16 sm:pb-24 pt-6 sm:pt-10 px-4 sm:px-6 lg:px-8 lg:pt-24">
           <div className="px-0 lg:px-0 w-full text-center">
@@ -33,6 +33,6 @@ export default function ExtractPage() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
