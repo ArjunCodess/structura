@@ -89,8 +89,8 @@ export function PlaygroundInput({
   };
 
   return (
-    <form onSubmit={onSubmit} className="space-y-6">
-      <h3 className="text-lg font-medium text-neutral-900 dark:text-white mb-2">
+    <form onSubmit={onSubmit} className="space-y-4 sm:space-y-6">
+      <h3 className="text-lg font-medium text-neutral-900 dark:text-white mb-4 border-b border-neutral-200 dark:border-neutral-700 pb-2">
         Input
       </h3>
       <div>
@@ -103,7 +103,7 @@ export function PlaygroundInput({
         <textarea
           id="text"
           rows={4}
-          className="w-full px-3 py-2 border border-neutral-200 dark:border-neutral-700 rounded-md shadow-sm focus:ring-neutral-500 focus:border-neutral-500 bg-background"
+          className="w-full px-3 py-2 border border-neutral-200 dark:border-neutral-700 rounded-md shadow-sm focus:ring-neutral-500 focus:border-neutral-500 bg-background text-sm sm:text-base"
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder="Enter your text here..."
@@ -111,7 +111,7 @@ export function PlaygroundInput({
       </div>
 
       <div>
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3 sm:mb-4">
           <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300">
             Fields to Extract
           </label>
@@ -120,13 +120,13 @@ export function PlaygroundInput({
             variant="outline"
             size="sm"
             onClick={addField}
-            className="flex items-center gap-2"
+            className="flex items-center gap-2 w-full sm:w-auto justify-center"
           >
             <Plus className="h-4 w-4" />
             Add Field
           </Button>
         </div>
-        <div className="space-y-3">
+        <div className="space-y-2 sm:space-y-3 max-w-full overflow-hidden">
           {fields.map((field) => (
             <SchemaField
               key={field.id}
@@ -142,7 +142,7 @@ export function PlaygroundInput({
             />
           ))}
           {fields.length === 0 && (
-            <div className="text-center py-8 text-neutral-500 dark:text-neutral-400">
+            <div className="text-center py-6 sm:py-8 text-neutral-500 dark:text-neutral-400 text-sm sm:text-base">
               No fields added yet. Click &quot;Add Field&quot; to start.
             </div>
           )}
@@ -152,11 +152,11 @@ export function PlaygroundInput({
       <Button
         type="submit"
         disabled={isLoading || fields.length === 0}
-        className="w-full"
+        className="w-full mt-4"
       >
         {isLoading ? (
           <div className="flex items-center">
-            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+            <div className="animate-spin rounded-full h-3 w-3 sm:h-4 sm:w-4 border-b-2 border-white mr-2"></div>
             Processing...
           </div>
         ) : (

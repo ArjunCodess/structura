@@ -96,36 +96,36 @@ const Demo = () => {
   };
 
   return (
-    <div className="flex flex-col gap-5 items-center">
-      <div className="relative w-full rounded-xl bg-neutral-900/5 p-4 ring-1 ring-inset ring-neutral-900/10 lg:rounded-2xl">
-        <div className="flex justify-between items-center">
-          <div className="flex items-center gap-4">
-            <span className="inline-flex items-center rounded-md bg-primary-700 px-3 py-1 text-xs font-medium text-white ring-1 ring-inset ring-primary-400/20">
+    <div className="flex flex-col gap-3 sm:gap-4 items-center">
+      <div className="relative w-full rounded-xl bg-neutral-900/5 p-3 sm:p-4 ring-1 ring-inset ring-neutral-900/10 lg:rounded-2xl">
+        <div className="flex justify-between items-center overflow-x-auto whitespace-nowrap pb-2">
+          <div className="flex items-center gap-2 sm:gap-4 min-w-0">
+            <span className="inline-flex items-center rounded-md bg-primary-700 px-2 sm:px-3 py-1 text-xs sm:text-sm font-medium text-white ring-1 ring-inset ring-primary-400/20 shrink-0">
               POST
             </span>
-            <div className="h-[20px] w-px bg-neutral-300" />
-            <p className="break-all">{BASE_URL}/api/extract</p>
+            <div className="h-[20px] w-px bg-neutral-300 shrink-0" />
+            <p className="break-all text-xs sm:text-base overflow-x-auto scrollbar-hide">{BASE_URL}/api/extract</p>
           </div>
         </div>
 
         {!result && !error && (
           <form
-            className="relative flex flex-col items-center gap-2 h-full mt-4"
+            className="relative flex flex-col items-center gap-2 h-full mt-2 sm:mt-4"
             onSubmit={(e) => {
               e.preventDefault();
               handleSubmit();
             }}
           >
             <Input
-              className="bg-white"
+              className="bg-white text-sm sm:text-base w-full"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Enter text to extract data from..."
               disabled={isLoading}
             />
 
-            <div className="bg-primary-90 dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-800 w-full space-y-2">
-              <div className="flex flex-col gap-2">
+            <div className="bg-primary-90 dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-800 w-full space-y-1 sm:space-y-2">
+              <div className="flex flex-col gap-1 sm:gap-2">
                 {schemaFields.map((field, idx) => (
                   <SchemaField
                     key={idx}
@@ -148,24 +148,24 @@ const Demo = () => {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row sm:gap-2 w-full">
+            <div className="flex flex-col sm:flex-row gap-2 w-full mt-1 sm:mt-2">
               <Button
                 type="button"
                 variant="outline"
                 onClick={handleAddField}
-                className="w-full sm:[width:calc(33.333334%-0.25rem)]"
+                className="w-full text-xs sm:text-sm py-1.5 sm:py-2 h-auto sm:[width:calc(33.333334%-0.25rem)]"
               >
                 + Add Field
               </Button>
 
               <Button
-                className="w-full sm:[width:calc(66.666667%-0.25rem)]"
+                className="w-full text-xs sm:text-sm py-1.5 sm:py-2 h-auto mt-1 sm:mt-0 sm:[width:calc(66.666667%-0.25rem)]"
                 type="submit"
                 disabled={isLoading}
               >
                 {isLoading ? (
-                  <div className="flex items-center flex-row gap-2">
-                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2" />
+                  <div className="flex items-center flex-row gap-1 sm:gap-2">
+                    <div className="animate-spin rounded-full h-3 w-3 sm:h-4 sm:w-4 border-b-2 border-white mr-1 sm:mr-2" />
                     Processing...
                   </div>
                 ) : (
@@ -176,18 +176,18 @@ const Demo = () => {
           </form>
         )}
 
-        <div className="mt-4 rounded-lg border-2 border-dashed border-neutral-300 text-sm">
+        <div className="mt-3 sm:mt-4 rounded-lg border-2 border-dashed border-neutral-300 text-xs sm:text-sm">
           {error ? (
-            <div className="p-4 text-red-600">{error}</div>
+            <div className="p-3 sm:p-4 text-red-600">{error}</div>
           ) : result ? (
-            <div className="p-4">
+            <div className="p-3 sm:p-4">
               <div>
-                <h3 className="text-sm font-medium mb-2">Extracted Data</h3>
+                <h3 className="text-xs sm:text-sm font-medium mb-2">Extracted Data</h3>
                 <BricksView data={result as Record<string, unknown>} />
               </div>
             </div>
           ) : (
-            <div className="p-4 text-neutral-700 flex items-center justify-center h-56">
+            <div className="p-3 sm:p-4 text-neutral-700 flex items-center justify-center h-36 sm:h-56">
               Results will be shown here
             </div>
           )}
@@ -208,11 +208,11 @@ function formatValue(value: unknown): string {
 
 function Brick({ label, value }: { label: string; value: string }) {
   return (
-    <div className="w-full bg-primary-50 dark:bg-primary-950 border border-primary-200 dark:border-primary-800 rounded-lg px-4 py-3 mb-2 shadow-sm">
+    <div className="w-full bg-primary-50 dark:bg-primary-950 border border-primary-200 dark:border-primary-800 rounded-lg px-3 sm:px-4 py-2 sm:py-3 mb-2 shadow-sm">
       <span className="text-xs font-semibold text-primary-600 dark:text-primary-400 uppercase tracking-wide mb-1 block">
         {label}
       </span>
-      <span className="text-base font-medium text-primary-900 dark:text-primary-100 break-all whitespace-pre-wrap">
+      <span className="text-xs sm:text-base font-medium text-primary-900 dark:text-primary-100 break-all whitespace-pre-wrap">
         {value}
       </span>
     </div>

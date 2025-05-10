@@ -36,7 +36,7 @@ export function PlaygroundResult({ result, error }: PlaygroundResultProps) {
 
   return (
     <div>
-      <h3 className="text-lg font-medium text-neutral-900 dark:text-white mb-2">
+      <h3 className="text-lg font-medium text-neutral-900 dark:text-white mb-4 border-b border-neutral-200 dark:border-neutral-700 pb-2">
         Output
       </h3>
       <div className="bg-white dark:bg-neutral-800 shadow rounded-lg p-4">
