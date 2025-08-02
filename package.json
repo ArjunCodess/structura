@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ai-sdk/google": "^2.0.0",
     "@google/generative-ai": "^0.24.1",
     "@radix-ui/react-scroll-area": "^1.2.8",
     "@radix-ui/react-select": "^2.2.4",
@@ -16,6 +17,7 @@
     "@radix-ui/react-tabs": "^1.1.11",
     "@shadcn/ui": "^0.0.4",
     "@upstash/redis": "^1.28.4",
+    "ai": "^5.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.509.0",

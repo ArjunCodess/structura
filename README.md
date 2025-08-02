@@ -71,7 +71,7 @@ This project is a Next.js application.  You'll need Node.js and npm (or yarn, pn
 Create a `.env.local` file in the root directory and add the following environment variables:
 
 * `NEXT_PUBLIC_BASE_URL`: The base URL of your application (required for frontend links).
-* `GEMINI_API_KEY`: Your Google Gemini API key (required for API functionality).
+* `GOOGLE_GENERATIVE_AI_API_KEY`: Your Google Gemini API key (required for API functionality).
 * `UPSTASH_REDIS_REST_URL` (optional): Your Upstash Redis URL for rate limiting.
 * `UPSTASH_REDIS_REST_TOKEN` (optional): Your Upstash Redis token for rate limiting.
 
