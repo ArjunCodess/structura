@@ -68,30 +68,30 @@ const cleanAndParseJSON = (text: string): unknown => {
 
 const requestSchema = z.object({
   data: z.string().max(MAX_DATA_LENGTH),
-  format: z.record(z.any()).refine((val) => Object.keys(val).length > 0, {
+  format: z.record(z.string(), z.any()).refine((val) => Object.keys(val).length > 0, {
     message: "Format must have at least one property",
   }),
 });
 
 export const POST = async (req: NextRequest) => {
-  const ip = req.headers.get("x-forwarded-for") || "127.0.0.1";
-  const { success, limit, remaining, reset } = await rateLimit(ip);
-
-  if (!success) {
-    return NextResponse.json(
-      { error: "Too many requests" },
-      {
-        status: 429,
-        headers: {
-          "X-RateLimit-Limit": limit.toString(),
-          "X-RateLimit-Remaining": remaining.toString(),
-          "X-RateLimit-Reset": reset.toString(),
-        },
-      }
-    );
-  }
-
   try {
+    const ip = req.headers.get("x-forwarded-for") || "127.0.0.1";
+    const { success, limit, remaining, reset } = await rateLimit(ip);
+
+    if (!success) {
+      return NextResponse.json(
+        { error: "Too many requests" },
+        {
+          status: 429,
+          headers: {
+            "X-RateLimit-Limit": limit.toString(),
+            "X-RateLimit-Remaining": remaining.toString(),
+            "X-RateLimit-Reset": reset.toString(),
+          },
+        }
+      );
+    }
+
     const body = await req.json();
     const parseResult = requestSchema.safeParse(body);
 
