@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
-import { generateContent, ChatMessage } from "@/lib/gemini";
+import { generateStructuredObject, ChatMessage } from "@/lib/gemini";
 import { jsonSchemaToZod, JsonSchema } from "@/lib/schema";
 import { RetryablePromise } from "@/lib/retry";
 import { rateLimit } from "@/lib/rate-limit";
@@ -30,7 +30,7 @@ Schema: {
     items: { type: "string" }
   }
 }
-Output: {
+Expected Output: {
   "name": "John",
   "age": 25,
   "isStudent": true,
@@ -41,30 +41,8 @@ Now process this input:
 DATA:
 "${data}"
 
-----------
-Extract the following structured JSON from the given input:
-
-${JSON.stringify(format, null, 2)}
-
-----------
-Expected JSON output:`;
-
-const cleanAndParseJSON = (text: string): unknown => {
-  const cleaned = text
-    .replace(/```json\n?/g, '')
-    .replace(/```\n?/g, '')
-    .replace(/^`|`$/g, '')
-    .trim();
-
-  try {
-    return JSON.parse(cleaned);
-  } catch (error) {
-    console.error('Failed to parse JSON:', error);
-    console.error('Original text:', text);
-    console.error('Cleaned text:', cleaned);
-    throw error;
-  }
-};
+Extract the structured data according to the following schema:
+${JSON.stringify(format, null, 2)}`;
 
 const requestSchema = z.object({
   data: z.string().max(MAX_DATA_LENGTH),
@@ -117,15 +95,13 @@ export const POST = async (req: NextRequest) => {
             },
           ];
 
-          const result = await generateContent(messages, {
-            maxRetries: MAX_RETRIES,
-          });
-          const text = result.content;
+          const result = await generateStructuredObject(
+            messages, 
+            dynamicSchema,
+            { maxRetries: MAX_RETRIES }
+          );
 
-          const parsedJSON = cleanAndParseJSON(text);
-          const validationResult = dynamicSchema.parse(parsedJSON);
-
-          resolve(validationResult);
+          resolve(result.object);
         } catch (err) {
           reject(err);
         }
